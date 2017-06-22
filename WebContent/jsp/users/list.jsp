@@ -8,15 +8,65 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<title>Users List</title>
+<style>
+body {  
+ font-size: 20px;  
+ color: teal;  
+ font-family: Calibri;  
+}  
+  
+td {  
+ font-size: 15px;  
+ color: black;  
+ width: 100px;  
+ height: 22px;  
+ text-align: center;  
+}  
+.heading {  
+ font-size: 18px;  
+ color: white;  
+ font: bold;  
+ background-color: orange;  
+ border: thick; 
+ font-weight: bold; 
+}  
+a{
+color: black;
+text-decoration: none;
+font-family: monospace; 	
+}
+.delete{
+color: red;
+}
+.details{
+color: blue;
+}
+.edit{
+color:green;
+}
+
+
+</style>
+
 </head>
 <body>
+<center>
+ <br /> <br /> <br /> <b>Users List </b> <br />  
+  <br />
 <table border=1>
 	<tr>
- 		<th>Id</th>
- 		<th>FirstName</th>
- 		<th>LastName</th>
-   		<th>Email</th>
+ 		<td class="heading">ID</td>
+ 		<td class="heading">FirstName</td>
+ 		<td class="heading">LastName</td>
+   		<td class="heading">Email</td>
+   		<td class="heading">Telephone</td>
+   		<td class="heading">Address</td>
+   		<td class="heading">City</td>
+   		<td class="heading">Details</td>
+   		<td class="heading">Edit</td>
+   		<td class="heading">Delete</td>
  
   	</tr>
   	<c:forEach var="u" items="${model['usersList']}">
@@ -25,14 +75,19 @@
 	   		<td><c:out value="${u.fname}"/></td>
 	   		<td><c:out value="${u.lname}"/></td>
 	   		<td><c:out value="${u.email}"/></td> 
-	   		<td><a href="<c:url value="/users/detalii/${u.id}"/>">Details</a></td>
-	   		<td><a href="<c:url value="/users/editeaza/${u.id}"/>">Edit</a></td>
-	   		<td><a href="<c:url value="/users/delete/${u.id}"/>">Delete</a></td>
+	   		<td><c:out value="${u.telefon}"/></td> 
+	   		<td><c:out value="${u.address}"/></td> 
+	   		<td><c:out value="${u.city}"/></td> 
+	   		<td><a class="details" href="<c:url value="/users/detalii/${u.id}"/>"><i class="icon-info"></i></a></td>
+	   		<td><a class="edit" href="<c:url value="/users/editeaza/${u.id}"/>"><i class="icon-pencil"></i></a></td>
+	   		<td><a class="delete" href="<c:url value="/users/delete/${u.id}"/>"><i class="icon-trash"></i></a></td>
 		</tr>
+		
 	</c:forEach>
+	<tr><td colspan="10"><a href="<c:url value="/users/adauga"/>"><i class="icon-plus"></i></a></td></tr>
 </table>
 
-<a href="<c:url value="/users/adauga"/>">Add User</a>
 
+</center>
 </body>
 </html>

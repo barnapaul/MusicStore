@@ -8,9 +8,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<title>Edit Product Details</title>
+<style>  
+body {  
+ font-size: 20px;  
+ color: teal;  
+ font-family: Calibri;  
+}  
+  
+td {  
+ font-size: 15px;  
+ color: black;  
+ width: 100px;  
+ height: 22px;  
+ text-align: center;  
+}  
+  
+.heading {  
+ font-size: 18px;  
+ color: white;  
+ font: bold;  
+ background-color: orange;  
+ border: thick;  
+}  
+.icon{
+color:orange;
+text-decoration: none;
+}
+input:hover{
+background-color:#D3D3D3
+}
+.save:hover{
+background-color:#87CEFA;
+}
+</style>
+
 </head>
 <body>
+<center>
+<br /> <br /> <br /> <b>Edit Product Details </b><br /> <br />  
+<div>
 <form:form action="${pageContext.request.contextPath}/products/save" method="post" commandName="productForm">
        
 <table>
@@ -35,10 +73,17 @@
 	<td><form:input path="producator" /></td>
 </tr>
 <tr>
-	<td><a href="<c:url value="/products.htm"/>">Back to the list</a></td>
-	<td><input type=submit value="Save"/></td>
+
+<td colspan="2"><input class="save" type=submit value="Save"/></td>
+	
+	</tr>
+<tr>
+	
+	<td ><a class="icon"href="<c:url value="/products.htm"/>"><i class="icon-arrow-left"></i></a></td>
 </tr>
 </table>
 </form:form>
+</div>
+</center>
 </body>
 </html>

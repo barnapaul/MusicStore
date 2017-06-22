@@ -1,6 +1,6 @@
 package ro.emanuel.musicstore.controller;
 
-import java.util.Date;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class MusicStoreController {
+public class WelcomeController {
 
-	@RequestMapping (value="music.htm")
+	@RequestMapping (value="welcome.htm")
 	public ModelAndView getIndex(){
 		ModelMap model=new ModelMap("model");
-		model.put("time", new Date().toString());
 		
-		return new ModelAndView("music","model",model);
+		
+		return new ModelAndView("welcome","model",model);
 	
 	}
 }

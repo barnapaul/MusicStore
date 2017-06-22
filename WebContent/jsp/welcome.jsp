@@ -7,10 +7,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome!</title>
 </head>
+<style>
+p{
+font-size: 60px;
+color: orange;
+font-family: cursive;
+}
+</style>
 <body>
-HEllo MUsic Store!<br>
-<c:out value="${model.time}"/>
+<center>
+<p>Welcome to the MusicStore!</p>
+<br>
+<img alt="music" src="http://ibclassified.com/wp-content/uploads/2016/08/E04DVb3.jpg" height="350px" width="650px">
+</center>
 </body>
 </html>

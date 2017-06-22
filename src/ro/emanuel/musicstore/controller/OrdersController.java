@@ -16,21 +16,20 @@ import org.springframework.web.servlet.ModelAndView;
 import ro.emanuel.musicstore.dao.OrderDAO;
 import ro.emanuel.musicstore.pojo.Order;
 
-
 @Controller
 public class OrdersController {
-	
-	@RequestMapping (value="orders.htm")
-	public ModelAndView showOrders() throws SQLException{
+
+	@RequestMapping(value = "orders.htm")
+	public ModelAndView showOrders() throws SQLException {
 		ModelMap model = new ModelMap();
-		
-		ArrayList<Order> orders=OrderDAO.getOrders();
+
+		ArrayList<Order> orders = OrderDAO.getOrders();
 		model.addAttribute("ordersList", orders);
-		
-		return new ModelAndView("/orders/list","model",model);
-		
+
+		return new ModelAndView("/orders/list", "model", model);
+
 	}
-	
+
 	@RequestMapping(value = "/orders/detalii/{orderId}")
 	public ModelAndView vizualizareDetalii(@PathVariable String orderId, Model model)
 			throws NumberFormatException, SQLException {
@@ -58,7 +57,9 @@ public class OrdersController {
 		try {
 			orderObj = OrderDAO.getOrderById(Integer.valueOf(order.getId()));
 			orderObj.setUserId(order.getUserId());
+			orderObj.setProductId(order.getProductId());
 			orderObj.setOrderDate(order.getOrderDate());
+			orderObj.setQuant(order.getQuant());
 			OrderDAO.updateOrder(orderObj);
 			model.put("orderForm", order);
 		} catch (NumberFormatException e) {
@@ -93,7 +94,7 @@ public class OrdersController {
 	}
 
 	@RequestMapping(value = "/orders/addOrder", method = RequestMethod.POST)
-	public ModelAndView addOrder(@ModelAttribute("orderForm") Order order , ModelMap model, BindingResult result) {
+	public ModelAndView addOrder(@ModelAttribute("OrderForm") Order order, ModelMap model, BindingResult result) {
 
 		try {
 			OrderDAO.createOrder(order);
@@ -111,6 +112,3 @@ public class OrdersController {
 	}
 
 }
-
-	
-

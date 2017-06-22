@@ -18,8 +18,10 @@ import ro.emanuel.musicstore.pojo.User;
 
 @Controller
 public class UsersController {
+	
 
-	@RequestMapping(value = "users.htm")
+	
+	@RequestMapping(value = "/users.htm")
 	public ModelAndView showUsers() throws SQLException {
 		ModelMap model = new ModelMap();
 
@@ -59,6 +61,9 @@ public class UsersController {
 			userObj.setFname(user.getFname());
 			userObj.setLname(user.getLname());
 			userObj.setEmail(user.getEmail());
+			userObj.setTelefon(user.getTelefon());
+			userObj.setAddress(user.getAddress());
+			userObj.setCity(user.getCity());
 			UserDAO.updateUser(userObj);
 			model.put("userForm", user);
 		} catch (NumberFormatException e) {

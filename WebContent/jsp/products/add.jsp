@@ -8,33 +8,78 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<title>Add Product</title>
+<style>  
+body {  
+ font-size: 20px;  
+ color: teal;  
+ font-family: Calibri;  
+}  
+  
+td {  
+ font-size: 15px;  
+ color: black;  
+ width: 100px;  
+ height: 22px;  
+ text-align: left;  
+}  
+  
+.heading {  
+ font-size: 18px;  
+ color: white;  
+ font: bold;  
+ background-color: orange;  
+ border: thick;  
+}  
+input:hover{
+background-color:#D3D3D3;
+}
+.save:hover{
+background-color: #87CEFA;
+
+}
+.icon{
+color:orange;
+text-decoration: none;
+}
+</style>  
 </head>
 <body>
+<center>
+<br /> <br /> <br /> <b>Add Product </b> <br />  
+  <br />
+  <div>
 <form:form action="${pageContext.request.contextPath}/products/addProduct" method="post" commandName="productForm">
        
 <table>
 <tr>
-	<td>Name</td>
+	<td><b>Name:</b></td>
 	<td><form:input path="name" /></td>
 </tr>
 <tr>
-	<td>Price</td>
+	<td><b>Price:</b></td>
 	<td><form:input path="price" /></td>
 </tr>
 <tr>
-	<td>Stoc</td>
+	<td><b>Stoc:</b></td>
 	<td><form:input path="stoc" /></td>
 </tr>
 <tr>
-	<td>Producator</td>
+	<td><b>Producator:</b></td>
 	<td><form:input path="producator" /></td>
 </tr>
 <tr>
-	<td><a href="<c:url value="/products.htm"/>">Back to the list</a></td>
-	<td><input type=submit value="Save"/></td>
+<td></td>
+<td  ><input class="save" type=submit value="Save"/></td>
+</tr>
+<tr>
+<td colspan="2" ><a class="icon"href="<c:url value="/products.htm"/>"><i class="icon-arrow-left"></i></a></td>
+
 </tr>
 </table>
 </form:form>
+</div>
+</center>
 </body>
 </html>
